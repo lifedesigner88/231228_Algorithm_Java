@@ -24,6 +24,36 @@ public class HeapSort extends Print {
 
         print("힙정렬 \t\t: " + Arrays.toString(arr));
 
+    }
+
+
+    static void heapify(int[] arr, int end, int root){
+//        xx조건의 경우에 change로직 : left와 right비교해서 자리 change
+        int max_index = root;
+        int left = root*2 + 1;
+        int right = root*2 + 2;
+
+        if(left<end && arr[max_index] < arr[left])
+            max_index = left;
+
+        if(right<end && arr[max_index] < arr[right])
+            max_index = right;
+
+        if(max_index != root){
+            swap(arr, root, max_index);
+            heapify(arr, end, max_index);
+        }
+    }
+
+    static void swap(int[] arr, int a, int b) {
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
+    }
+
+
+
+
 
 //
 //        print(Arrays.toString(arr));
@@ -32,8 +62,6 @@ public class HeapSort extends Print {
 //
 //        print(MaxValue3(arr, 1, 2, 0));
 
-
-    }
 
 
 //
@@ -48,11 +76,7 @@ public class HeapSort extends Print {
 //
 
 
-    static void swap(int[] arr, int a, int b) {
-        int temp = arr[a];
-        arr[a] = arr[b];
-        arr[b] = temp;
-    }
+
 //
 //    static int MaxValue3(int[] arr, int a, int b, int c) {
 //
@@ -68,27 +92,6 @@ public class HeapSort extends Print {
 //        return Math.log10(x) / Math.log10(2);
 //    }
 //
-
-    static void heapify(int[] arr, int end, int root){
-//        xx조건의 경우에 change로직 : left와 right비교해서 자리 change
-        int max_index = root;
-        int left = root*2 + 1;
-        int right = root*2 + 2;
-
-        if(left<end && arr[max_index] < arr[left])
-            max_index = left;
-
-        if(right<end && arr[max_index] < arr[right])
-            max_index = right;
-
-        if(max_index != root){
-            int temp = arr[root];
-            arr[root] = arr[max_index];
-            arr[max_index] = temp;
-            heapify(arr, end, max_index);
-        }
-    }
-
 
 
 }

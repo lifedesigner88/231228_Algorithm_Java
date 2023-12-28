@@ -1,14 +1,14 @@
 class Print {
-    static void pr() {System.out.print("\n");}
-    static void pr(boolean x) {System.out.print(x);}
-    static void pr(char x) {System.out.print(x);}
-    static void pr(int x) {System.out.print(x);}
-    static void pr(long x) {System.out.print(x);}
-    static void pr(float x) {System.out.print(x);}
-    static void pr(double x) {System.out.print(x);}
-    static void pr(char[] x) {System.out.print(x);}
-    static void pr(String x) {System.out.print(x);}
-    static void pr(Object x) {System.out.print(x);}
+    static void P() {System.out.print("\n");}
+    static void P(boolean x) {System.out.print(x);}
+    static void P(char x) {System.out.print(x);}
+    static void P(int x) {System.out.print(x);}
+    static void P(long x) {System.out.print(x);}
+    static void P(float x) {System.out.print(x);}
+    static void P(double x) {System.out.print(x);}
+    static void P(char[] x) {System.out.print(x);}
+    static void P(String x) {System.out.print(x);}
+    static void P(Object x) {System.out.print(x);}
 
 
     static void print() {System.out.println();}
