@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.List;
 
-public class HeapSort extends Print {
+public class C01_HeapSort extends Print {
     public static void main(String[] args) {
 
 
@@ -11,13 +11,13 @@ public class HeapSort extends Print {
 
         int end = arr.length;
 
-        for (int i = end/2-1 ; i >= 0; i--) {
+        for (int i = end / 2 - 1; i >= 0; i--) {
             heapify(arr, end, i);
         }
 
         print("히피파이 \t\t: " + Arrays.toString(arr));
 
-        for (int i = end-1 ; i > 0; i--) {
+        for (int i = end - 1; i > 0; i--) {
             swap(arr, 0, i);
             heapify(arr, i, 0);
         }
@@ -27,19 +27,19 @@ public class HeapSort extends Print {
     }
 
 
-    static void heapify(int[] arr, int end, int root){
+    static void heapify(int[] arr, int end, int root) {
 //        xx조건의 경우에 change로직 : left와 right비교해서 자리 change
         int max_index = root;
-        int left = root*2 + 1;
-        int right = root*2 + 2;
+        int left = root * 2 + 1;
+        int right = root * 2 + 2;
 
-        if(left<end && arr[max_index] < arr[left])
+        if (left < end && arr[max_index] < arr[left])
             max_index = left;
 
-        if(right<end && arr[max_index] < arr[right])
+        if (right < end && arr[max_index] < arr[right])
             max_index = right;
 
-        if(max_index != root){
+        if (max_index != root) {
             swap(arr, root, max_index);
             heapify(arr, end, max_index);
         }
@@ -52,16 +52,12 @@ public class HeapSort extends Print {
     }
 
 
-
-
-
 //
 //        print(Arrays.toString(arr));
 //
 //        swap(arr, 1, 2);
 //
 //        print(MaxValue3(arr, 1, 2, 0));
-
 
 
 //
@@ -74,7 +70,6 @@ public class HeapSort extends Print {
 //        }
 //    }
 //
-
 
 
 //
