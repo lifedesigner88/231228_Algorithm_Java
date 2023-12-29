@@ -5,27 +5,22 @@ public class C06_BinarySearch extends Print{
 
         int start = 0;
         int middle = 0;
-        int end = arr.length;
-        int find = 7;
-        int answer = 0;
+        int end = arr.length-1;
+        int find = 19;
+        int answer = -1;
 
-        while(start < end) {
+        while(start <= end) {
 
             middle = (start + end) / 2;
-
             if(arr[middle] == find){
                 answer = middle; break;}
             else if (arr[middle] < find)
                 start = middle + 1;
             else
                 end = middle - 1;
-
         }
 
-
-
-
-
+        print(answer);
 
     }
 }
