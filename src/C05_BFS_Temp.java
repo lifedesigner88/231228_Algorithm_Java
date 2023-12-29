@@ -15,6 +15,7 @@ public class C05_BFS_Temp extends Print {
             for (int i = 0; i < node_n; i++)
                 adjList.add(new ArrayList<>());
 
+
 //            for(int i
 //              for (int 1
 
