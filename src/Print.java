@@ -10,7 +10,6 @@ class Print {
     static void P(String x) {System.out.print(x);}
     static void P(Object x) {System.out.print(x);}
 
-
     static void print() {System.out.println();}
     static void print(boolean x) {System.out.println(x);}
     static void print(char x) {System.out.println(x);}
@@ -21,7 +20,5 @@ class Print {
     static void print(char[] x) {System.out.println(x);}
     static void print(String x) {System.out.println(x);}
     static void print(Object x) {System.out.println(x);}
-
-
 
 }

@@ -2,29 +2,35 @@ import java.util.Arrays;
 import java.util.List;
 
 public class C01_HeapSort extends Print {
+
     public static void main(String[] args) {
-
-
         int[] arr = {7, 6, 5, 8, 3, 5, 9, 1, 7, 0, 1, 2, 8, -1, -2};
+        print("\n배열     \t\t: " + Arrays.toString(arr));
 
-        print("\n배열 \t\t: " + Arrays.toString(arr));
+        heapSort(arr);
+    }
+
+
+    static void swap(int[] arr, int a, int b) {
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
+    }
+
+    static void heapSort(int[] arr){
 
         int end = arr.length;
-
-        for (int i = end / 2 - 1; i >= 0; i--) {
+        for (int i = end / 2 - 1; i >= 0; i--)
             heapify(arr, end, i);
-        }
-
         print("히피파이 \t\t: " + Arrays.toString(arr));
 
         for (int i = end - 1; i > 0; i--) {
             swap(arr, 0, i);
-            heapify(arr, i, 0);
-        }
-
-        print("힙정렬 \t\t: " + Arrays.toString(arr));
+            heapify(arr, i, 0);}
+        print("힙정렬   \t\t: " + Arrays.toString(arr));
 
     }
+
 
 
     static void heapify(int[] arr, int end, int root) {
@@ -45,11 +51,8 @@ public class C01_HeapSort extends Print {
         }
     }
 
-    static void swap(int[] arr, int a, int b) {
-        int temp = arr[a];
-        arr[a] = arr[b];
-        arr[b] = temp;
-    }
+
+
 
 
 //
