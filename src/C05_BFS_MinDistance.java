@@ -59,7 +59,7 @@ public class C05_BFS_MinDistance extends Print{
         for (int i = 0; i < node_n; i++) adjList.add(new ArrayList<>());
 
         print("\n향상된 [][] => 리스트 변환");
-        for (int i = 0; i < row; i++)           // 리스트 이용한 맵 표현
+        for (int i = 0; i < row; i++)
             for (int j = 0; j < col; j++){
                 if(maps[i][j] == 0) continue;               // 자신이 0 이면
                 if( j!=(col-1) && maps[i][j+1]==1)          // (맨 오른쪽이 아니면, 오른쪽 체크)
