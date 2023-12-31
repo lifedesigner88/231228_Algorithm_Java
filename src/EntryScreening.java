@@ -3,7 +3,7 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-public class Test extends Print{
+public class EntryScreening extends Print{
     public static void main(String[] args) {
         print();
 
@@ -15,13 +15,14 @@ public class Test extends Print{
         Queue<long[]> Que = new PriorityQueue<>((Que1, Que2) -> (int) (Que1[2] - Que2[2]));
         for (int time : times) Que.add(new long[]{time, 0, time});
 
-        do{
+        while (true){
             long[] temp = Que.poll();
-            answer = temp[2];                       // temp[0] = Value
+            if (++count == n) {
+                answer = temp[2]; break;}           // temp[0] = Value
             temp[1]++;                              // temp[1] = Count
             temp[2] = temp[0] * (temp[1] + 1);      // temp[2] = Queue
             Que.add(temp);
-        }while(++count < n);
+        }
 
 
 
