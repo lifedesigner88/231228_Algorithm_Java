@@ -4,7 +4,7 @@ public class C06_BinarySearch extends Print{
 
 
         int start = 0;
-        int middle = 0;
+        int middle;
         int end = arr.length-1;
         int find = 19;
         int answer = -1;
@@ -23,4 +23,7 @@ public class C06_BinarySearch extends Print{
         print(answer);
 
     }
+
+
+
 }

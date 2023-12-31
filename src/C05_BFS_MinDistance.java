@@ -44,8 +44,8 @@ public class C05_BFS_MinDistance extends Print{
                     int target_j = j + dy[d];
                     if (    target_i >= 0 && target_i < row &&
                             target_j >= 0 && target_j < col && maps[target_i][target_j] == 1)
-//                        addEdge(adjList, (i) * col + j, (target_i) * col + target_j);
-                        adjList.get( (i) * col + j ).add((target_i) * col + target_j);
+                        addEdge(adjList, (i) * col + j, (target_i) * col + target_j);
+//                        adjList.get( (i) * col + j ).add((target_i) * col + target_j);   // 수정
                 }
             }
 
