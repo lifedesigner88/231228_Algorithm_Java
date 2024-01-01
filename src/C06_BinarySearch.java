@@ -2,7 +2,11 @@ public class C06_BinarySearch extends Print{
     public static void main(String[] args) {
         int[] arr = {1, 3, 5, 7, 9, 11, 13, 15, 17, 19};
 
+        print(BinarySearch(arr,19));
 
+    }
+
+    static int BinarySearch(int[]arr, int findValue) {
         int start = 0;
         int middle;
         int end = arr.length-1;
@@ -19,9 +23,7 @@ public class C06_BinarySearch extends Print{
             else
                 end = middle - 1;
         }
-
-        print(answer);
-
+        return answer;
     }
 
 
