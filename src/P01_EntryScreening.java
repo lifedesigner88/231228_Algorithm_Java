@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class EntryScreening extends Print{
+public class P01_EntryScreening extends Print{
     public static void main(String[] args) {
         print();
 //        int[] times = {3, 4, 5, 2, 6, 7, 8, 9, 2};
