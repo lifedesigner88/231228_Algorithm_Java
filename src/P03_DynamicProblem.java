@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class P03_DP extends Print {
+public class P03_DynamicProblem extends Print {
     public static void main(String[] args) {
         int[] coins = {1, 4, 5};
         int n = 13;
@@ -29,11 +29,9 @@ public class P03_DP extends Print {
             }
         }
 
-
         print(Arrays.toString(neededMinCoins));
         print(Arrays.toString(arr));
         print("최소 코인 배열은: " + neededMinCoins[n] + "개");
-
 
 
 
