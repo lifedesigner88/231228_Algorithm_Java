@@ -1,36 +1,30 @@
-import java.util.Arrays;
+class Solution {
+    String[] PRONOUNCES = {"aya", "ye", "woo", "ma" };
 
-class Solution extends Print {
-    public static void main(String[] args) {
+    public int solution(String[] babbling) {
+        int answer = 0;
 
-        print(Arrays.deepToString(solution(5)));
+        for (String babb : babbling)
+            if ( isPossible(babb) )answer ++;
 
+        return answer;
     }
-    private static final int[][] DIRECTIONS = {
-            {0, 1},  // RIGHT
-            {1, 0},  // DOWN
-            {0, -1}, // LEFT
-            {-1, 0}, // UP
-    };
 
-    public static int[][] solution(int n) {
-        int[][] result = new int[n][n];
-        int x = 0, y = 0, directionIndex = 0;
 
-        for (int i = 1; i <= n * n; i++) {
-            result[x][y] = i;
-            int newX = x + DIRECTIONS[directionIndex % 4][0];
-            int newY = y + DIRECTIONS[directionIndex % 4][1];
 
-            if (newX < 0 || newY < 0 || newX == n || newY == n || result[newX][newY] != 0) {
-                directionIndex++;   // change direction
-                newX = x + DIRECTIONS[directionIndex % 4][0];
-                newY = y + DIRECTIONS[directionIndex % 4][1];
-            }
-
-            x = newX;
-            y = newY;
+    boolean isPossible(String babbling){
+        StringBuilder sb = new StringBuilder(babbling);
+        for (String pronounce : PRONOUNCES){
+            int startIndex = sb.indexOf(pronounce);
+            if ( startIndex != -1 )         // 포함시 삭제
+                sb.replace(startIndex, startIndex + pronounce.length(),"0");
         }
-        return result;
+        try {
+            Integer.parseInt(sb.toString());
+            return true;            // 숫자 변환 가능하면 발음 가능
+        }
+        catch (Exception e){        // 문제 생기면 발음 불가능
+            return false;
+        }
     }
 }
