@@ -12,4 +12,4 @@ public class Solution {
 
         return stack.stream().mapToInt(Integer::intValue).toArray();
     }
-}gi
+}
