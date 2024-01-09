@@ -258,7 +258,7 @@ class Solution6 {           // 세한님 조
 }
 
 
-class enhancedSolution {
+class enhancedSolution {        // 퓨전코드
     public int[] solution(int[] sequence, int k) {
 
         int[] answer = new int[2];
