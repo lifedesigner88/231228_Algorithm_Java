@@ -2,7 +2,7 @@ import java.util.*;
 import java.awt.Point;
 
 
-class Solution {
+public class C_01_Solution {
 
     static int sumArrayByTwoIndex(int[] sequence, int startIndex, int endIndex) {
         int sum = 0;                                    // 2개 인덱스로 배열의 합
@@ -177,8 +177,6 @@ class Solution4 {        // 보석님조
 
 
 
-
-
 class Solution5 {           // 지용님조
     static int min_len = Integer.MAX_VALUE;
 
@@ -210,7 +208,6 @@ class Solution5 {           // 지용님조
         return answer;
     }
 }
-
 
 
 class Solution6 {           // 세한님 조
