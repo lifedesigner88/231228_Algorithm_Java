@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.LinkedList;
+import java.util.*;
 
 public class Programmers extends Print{
     public static void main(String[] args) {
@@ -111,6 +108,49 @@ class DFS {
     }
 
 }
+
+class DepthFirstSearch {
+    private final int totalVertices; // No. of vertices
+    private final List<Integer>[] adjacencyLists; // Adjacency Lists
+
+    // Constructor
+    DepthFirstSearch(int totalVertices) {
+        this.totalVertices = totalVertices;
+        adjacencyLists = new List[totalVertices];
+        for (int i = 0; i < totalVertices; ++i)
+            adjacencyLists[i] = new LinkedList<>();
+    }
+
+    // Function to add an edge into the graph
+    void addEdge(int v, int w) {
+        adjacencyLists[v].add(w);
+    }
+
+    // The function to do DFS traversal.
+    void depthFirstTraversal(int v) {
+        boolean[] visited = new boolean[totalVertices];
+        traverseDepthFirst(v, visited);
+    }
+
+    // Function used for DFS traversal
+    private void traverseDepthFirst(int v, boolean[] visitedMarkers) {
+        markAsVisited(v, visitedMarkers);
+
+        for (int n : adjacencyLists[v]) {
+            if (!visitedMarkers[n])
+                traverseDepthFirst(n, visitedMarkers);
+        }
+    }
+
+    // Function to mark a node as visited
+    private void markAsVisited(int v, boolean visited[]) {
+        visited[v] = true;
+        System.out.print(v + " ");
+    }
+}
+
+
+
 
 class BFS {
     private int V;
