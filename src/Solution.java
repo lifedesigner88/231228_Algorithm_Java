@@ -266,7 +266,7 @@ class enhancedSolution {        // 퓨전코드
         int length = sequence.length;
         int min_len = length;
 
-        while (true) {
+        while (true)
             if (sum == k){
                 if (min_len > end - start) {
                     answer[0] = start;
@@ -280,7 +280,6 @@ class enhancedSolution {        // 퓨전코드
                 if (end == length - 1) break;
                 sum += sequence[++end];
             }
-        }
         return answer;
     }
 }
