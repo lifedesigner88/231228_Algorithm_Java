@@ -140,7 +140,7 @@ class Solution3 {       // 혜선님조
 
 
 
-class Solution4 {
+class Solution4 {        // 보석님조
 
     static int sum, end;
 
