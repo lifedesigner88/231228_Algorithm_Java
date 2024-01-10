@@ -2,7 +2,7 @@ import java.util.*;
 import java.awt.Point;
 
 
-public class C_01_Solution {
+public class Z01_Solution {
 
     static int sumArrayByTwoIndex(int[] sequence, int startIndex, int endIndex) {
         int sum = 0;                                    // 2개 인덱스로 배열의 합
