@@ -1,3 +1,5 @@
+package HanHwaSC_03;
+
 public class P02_GreedyCoinProblem extends Print{
     public static void main(String[] args) {
         print();

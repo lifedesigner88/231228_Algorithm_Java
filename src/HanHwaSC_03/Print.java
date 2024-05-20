@@ -1,3 +1,5 @@
+package HanHwaSC_03;
+
 class Print {
     static void P(Object x) {
         System.out.println(x);

@@ -1,4 +1,4 @@
-package P2405;
+package HanHwaSC_03.P2405;
 
 import java.util.Arrays;
 

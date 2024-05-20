@@ -1,4 +1,4 @@
-package P03;
+package HanHwaSC_03.P03;
 
 import java.util.*;
 

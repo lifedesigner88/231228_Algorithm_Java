@@ -1,3 +1,5 @@
+package HanHwaSC_03;
+
 import java.util.Arrays;
 
 public class P03_DynamicProblem extends Print {

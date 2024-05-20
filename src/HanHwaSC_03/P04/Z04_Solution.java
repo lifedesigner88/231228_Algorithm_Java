@@ -1,4 +1,4 @@
-package P04;
+package HanHwaSC_03.P04;
 
 import java.util.Arrays;
 import java.util.Comparator;

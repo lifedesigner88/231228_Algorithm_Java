@@ -1,3 +1,5 @@
+package JavaCodeTest
+
 fun square(x: Int): Int {
     return x * x
 }
