@@ -1,6 +1,8 @@
 package JavaCodeTest.L001;
 
-public class valid_palindrome {
+import static JavaCodeTest.L001.KotlinKt.isPalindrome;
+
+public class Valid_Palindrome {
     public static void main(String[] args) {
         String[] s = {
                 "race a car",
@@ -9,7 +11,6 @@ public class valid_palindrome {
                 "",
                 ",."
         };
-
         long startTime, endTime, duration;
         for (String a : s) {
 
@@ -49,6 +50,15 @@ public class valid_palindrome {
             startTime = System.nanoTime();
             System.out.println(
                     new Solution5().isPalindrome(a));
+            endTime = System.nanoTime();
+            duration = endTime - startTime;
+            System.out.println("5번: " + String.format("%10d", duration) + " ns (교재)");
+
+
+//          코틀린 풀이
+            startTime = System.nanoTime();
+            System.out.println(
+                    isPalindrome(a));
             endTime = System.nanoTime();
             duration = endTime - startTime;
             System.out.println("5번: " + String.format("%10d", duration) + " ns (교재)");
@@ -134,13 +144,3 @@ class Solution5 {
         return s_filtered.equals(s_reversed);
     }
 }
-
-
-
-
-
-
-
-
-
-
