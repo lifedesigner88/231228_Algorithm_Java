@@ -1,10 +1,13 @@
 package JavaCodeTest.A_0001_Valid_Palindrome;
 
-// https://leetcode.com/problems/valid-palindrome/
+// https://leetcode.com/problems/valid-palindrome
+// https://blog.naver.com/lifedesigner88/223455204369
+
 public class Valid_Palindrome {
     public static void main(String[] args) {
 
         String s = "A man, a plan, a canal: Panama";
+        boolean result = true;
 
         ElseIfPointer elif = new ElseIfPointer();
         System.out.println(elif.isPalindrome(s));
@@ -49,7 +52,8 @@ class ElseIfPointer {
             if (!Character.isLetterOrDigit(startChar)) start++;
             else if (!Character.isLetterOrDigit(endChar)) end--;
             else {
-                if (Character.toLowerCase(startChar) != Character.toLowerCase(endChar))
+                if (Character.toLowerCase(startChar)
+                        != Character.toLowerCase(endChar))
                     return false;
                 start++;
                 end--;

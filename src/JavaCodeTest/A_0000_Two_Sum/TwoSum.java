@@ -4,12 +4,15 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-// https://leetcode.com/problems/two-sum/
+// https://leetcode.com/problems/two-sum
+// https://blog.naver.com/lifedesigner88/223455176344
+
 public class TwoSum {
     public static void main(String[] args) {
 
         int[] nums = {2, 7, 11, 15};
         int target = 9;
+        int[] result = {0, 1};
 
         BrusthForce bf = new BrusthForce();
         System.out.println(Arrays.toString(bf.twoSum(nums, target)));
