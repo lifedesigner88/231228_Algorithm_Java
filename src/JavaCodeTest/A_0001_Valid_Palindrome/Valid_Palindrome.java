@@ -9,8 +9,8 @@ public class Valid_Palindrome {
         ElseIfPointer elif = new ElseIfPointer();
         System.out.println(elif.isPalindrome(s));
 
-        SingleArray regexp = new SingleArray();
-        System.out.println(regexp.isPalindrome(s));
+        SingleArray sa = new SingleArray();
+        System.out.println(sa.isPalindrome(s));
 
         BufferReverse br = new BufferReverse();
         System.out.println(br.isPalindrome(s));
