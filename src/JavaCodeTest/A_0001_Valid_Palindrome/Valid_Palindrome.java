@@ -6,25 +6,33 @@ public class Valid_Palindrome {
 
         String s = "A man, a plan, a canal: Panama";
 
-        FilterByReg regexp = new FilterByReg();
-        System.out.println(regexp.isPalindrome(s));
-
         ElseIfPointer elif = new ElseIfPointer();
         System.out.println(elif.isPalindrome(s));
 
-        WhilePointer whilep = new WhilePointer();
-        System.out.println(whilep.isPalindrome(s));
+        SingleArray regexp = new SingleArray();
+        System.out.println(regexp.isPalindrome(s));
+
+        BufferReverse br = new BufferReverse();
+        System.out.println(br.isPalindrome(s));
 
     }
 }
 
-class FilterByReg {
+class BufferReverse {
+    public boolean isPalindrome(String s) {
+        String filter = s.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+        String reverse = new StringBuffer(filter).reverse().toString();
+        return filter.equals(reverse);
+    }
+}
+
+class SingleArray {
     public boolean isPalindrome(String s) {
         String filter = s.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
         int n = filter.length();
-        if (n <= 1) return true;
         for (int i = 0; i < n / 2; i++)
-            if (filter.charAt(i) != filter.charAt(n - i - 1)) return false;
+            if (filter.charAt(i) != filter.charAt(n - i - 1))
+                return false;
         return true;
     }
 }
@@ -33,36 +41,21 @@ class ElseIfPointer {
     public boolean isPalindrome(String s) {
         int start = 0;
         int end = s.length() - 1;
-        while (start < end)
-            if (!Character.isLetterOrDigit(s.charAt(start))) start++;
-            else if (!Character.isLetterOrDigit(s.charAt(end))) end--;
+
+        while (start < end) {
+            char startChar = s.charAt(start);
+            char endChar = s.charAt(end);
+
+            if (!Character.isLetterOrDigit(startChar)) start++;
+            else if (!Character.isLetterOrDigit(endChar)) end--;
             else {
-                if (Character.toLowerCase(s.charAt(start))
-                        != Character.toLowerCase(s.charAt(end)))
+                if (Character.toLowerCase(startChar) != Character.toLowerCase(endChar))
                     return false;
                 start++;
                 end--;
             }
-        return true;
-    }
-}
-
-class WhilePointer {
-    public boolean isPalindrome(String s) {
-        int start = 0;
-        String filter = s.toLowerCase();
-        int end = filter.length() - 1;
-        while (start < end) {
-            while (!Character.isLetterOrDigit(filter.charAt(start))) {
-                if (start == end) return true;
-                start++;
-            }
-            while (!Character.isLetterOrDigit(filter.charAt(end)))
-                end--;
-            if (filter.charAt(start) != filter.charAt(end)) return false;
-            start++;
-            end--;
         }
         return true;
     }
 }
+
