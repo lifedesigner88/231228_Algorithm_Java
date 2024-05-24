@@ -1,6 +1,7 @@
 package JavaCodeTest.A_0003_Reorder_DataInLogFiles;
 
 // https://leetcode.com/problems/reorder-data-in-log-files
+// https://blog.naver.com/lifedesigner88/223457482418
 
 import java.util.*;
 
