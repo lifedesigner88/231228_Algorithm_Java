@@ -15,16 +15,16 @@ public class Valid_Palindrome {
         SingleArray sa = new SingleArray();
         System.out.println(sa.isPalindrome(s));
 
-        BufferReverse br = new BufferReverse();
+        BufferBuilder br = new BufferBuilder();
         System.out.println(br.isPalindrome(s));
 
     }
 }
 
-class BufferReverse {
+class BufferBuilder {
     public boolean isPalindrome(String s) {
         String filter = s.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
-        String reverse = new StringBuffer(filter).reverse().toString();
+        String reverse = new StringBuilder(filter).reverse().toString();
         return filter.equals(reverse);
     }
 }
