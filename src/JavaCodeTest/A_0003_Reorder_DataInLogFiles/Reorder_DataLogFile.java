@@ -33,10 +33,8 @@ class ListSort {
             String[] So1 = o1.split(" ", 2);
             String[] So2 = o2.split(" ", 2);
             int compare = So1[1].compareTo(So2[1]);
-            if (compare == 0)
-                return So1[0].compareTo(So2[0]);
-            else
-                return compare;
+            if (compare == 0) return So1[0].compareTo(So2[0]);
+            else return compare;
         });
 
         letter.addAll(digit);
