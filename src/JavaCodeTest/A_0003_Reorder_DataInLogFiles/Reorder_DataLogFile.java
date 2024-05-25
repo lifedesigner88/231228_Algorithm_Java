@@ -21,10 +21,6 @@ public class Reorder_DataLogFile {
         boolean isCorrect2 = Arrays.equals(sortedLogs2, result);
         System.out.println(isCorrect2);
 
-        FastSolution fastSolution = new FastSolution();
-        String[] sortedLogs3 = fastSolution.reorderLogFiles(logs);
-        boolean isCorrect3 = Arrays.equals(sortedLogs3, result);
-        System.out.println(isCorrect3);
 
     }
 }
@@ -61,61 +57,20 @@ class IndexOfArray {
     public String[] reorderLogFiles(String[] logs) {
         Arrays.sort(logs, (o1, o2) -> {
 
-            int identA = o1.indexOf(" ") + 1;
-            int identB = o2.indexOf(" ") + 1;
+            String So1 = o1.substring(o1.indexOf(" ") + 1);
+            String So2 = o2.substring(o2.indexOf(" ") + 1);
 
-            String So1 = o1.substring(identA);
-            String So2 = o2.substring(identB);
-
-            boolean Do1 = Character.isDigit(o1.charAt(identA));
-            boolean Do2 = Character.isDigit(o2.charAt(identB));
+            boolean Do1 = Character.isDigit(So1.charAt(0));
+            boolean Do2 = Character.isDigit(So2.charAt(0));
 
             if (Do1 && Do2) return 0;
-            else if (Do1) return 1;
-            else if (Do2) return -1;
-            else {
-                int compare = So1.compareTo(So2);
-                if (compare != 0) return compare;
-                return o1.compareTo(o2);
-            }
+            if (Do1) return 1;
+            if (Do2) return -1;
+
+            int compare = So1.compareTo(So2);
+            return compare != 0 ? compare : o1.compareTo(o2);
+
         });
         return logs;
-    }
-}
-
-class FastSolution {
-    public String[] reorderLogFiles(String[] logs) {
-        if (logs.length == 0) return logs;
-        List<String> letterLogs = new ArrayList<>(), digitLogs = new ArrayList<>();
-        separateDigitsDigits(logs, letterLogs, digitLogs);
-        sortDigitLogs(letterLogs);
-        return generateOutput(letterLogs, digitLogs);
-    }
-
-    void separateDigitsDigits(String[] input,
-                              List<String> letterLogs,
-                              List<String> digitLogs) {
-        for (String log : input)
-            if (Character.isDigit(log.charAt(log.length() - 1)))
-                digitLogs.add(log);
-            else
-                letterLogs.add(log);
-    }
-
-    void sortDigitLogs(List<String> letterLogs) {
-        letterLogs.sort((o1, o2) -> {
-            String s1 = o1.substring(o1.indexOf(" ") + 1);
-            String s2 = o2.substring(o2.indexOf(" ") + 1);
-            return s1.equals(s2) ? o1.compareTo(o2) : s1.compareTo(s2);
-        });
-    }
-
-    String[] generateOutput(List<String> letterLogs, List<String> digitLogs) {
-        String[] output = new String[letterLogs.size() + digitLogs.size()];
-        for (int i = 0; i < letterLogs.size(); i++)
-            output[i] = letterLogs.get(i);
-        for (int i = letterLogs.size(); i < output.length; i++)
-            output[i] = digitLogs.get(i - letterLogs.size());
-        return output;
     }
 }
