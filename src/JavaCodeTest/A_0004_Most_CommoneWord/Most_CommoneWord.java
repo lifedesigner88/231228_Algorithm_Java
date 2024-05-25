@@ -40,7 +40,7 @@ class Solution {
 
     void addToMap(Map<String, Integer> map, String temp, String[] banned, StringBuilder sb) {
         if (temp != null) {
-            if (!Arrays.stream(banned).anyMatch(v -> v.equals(temp))) {
+            if (Arrays.stream(banned).noneMatch(v -> v.equals(temp))) {
                 Integer count = map.get(temp);
                 if (count == null) count = 0;
                 map.put(temp, count + 1);
