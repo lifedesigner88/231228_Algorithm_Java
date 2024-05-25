@@ -26,7 +26,7 @@ public class TwoSum {
     }
 }
 
-// ❤️ Solution ❤️
+// ❤️ Beautiful Solution ❤️
 
 class BrusthForce {
     public int[] twoSum(int[] nums, int target) {

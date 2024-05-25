@@ -21,7 +21,7 @@ public class Valid_Palindrome {
     }
 }
 
-// ❤️ Solution ❤️
+// ❤️ Beautiful Solution ❤️
 
 class BufferBuilder {
     public boolean isPalindrome(String s) {

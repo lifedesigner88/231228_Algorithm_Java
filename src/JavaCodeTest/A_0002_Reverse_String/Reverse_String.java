@@ -28,7 +28,7 @@ public class Reverse_String {
     }
 }
 
-// ❤️ Solution ❤️
+// ❤️ Beautiful Solution ❤️
 
 class UseFor {
     public void reverseString(char[] s) {

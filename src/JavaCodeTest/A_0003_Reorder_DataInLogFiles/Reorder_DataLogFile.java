@@ -25,7 +25,7 @@ public class Reorder_DataLogFile {
     }
 }
 
-// ❤️ Solution 1 ❤️
+// ❤️ Beautiful Solution ❤️
 
 class ListSort {
     public String[] reorderLogFiles(String[] logs) {
@@ -52,7 +52,6 @@ class ListSort {
 }
 
 
-// Sring[] 을 생성하지 않아서 위 코드보다 빠름.
 class IndexOfArray {
     public String[] reorderLogFiles(String[] logs) {
         Arrays.sort(logs, (o1, o2) -> {
