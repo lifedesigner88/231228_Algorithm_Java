@@ -21,7 +21,6 @@ public class Reorder_DataLogFile {
         boolean isCorrect2 = Arrays.equals(sortedLogs2, result);
         System.out.println(isCorrect2);
 
-
     }
 }
 
