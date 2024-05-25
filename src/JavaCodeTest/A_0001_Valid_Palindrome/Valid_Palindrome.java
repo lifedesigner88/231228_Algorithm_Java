@@ -21,6 +21,8 @@ public class Valid_Palindrome {
     }
 }
 
+// ❤️ Solution ❤️
+
 class BufferBuilder {
     public boolean isPalindrome(String s) {
         String filter = s.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
