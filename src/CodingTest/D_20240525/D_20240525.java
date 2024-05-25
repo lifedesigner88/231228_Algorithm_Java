@@ -32,7 +32,7 @@ class Main1 {
             int S = 0;
             int B = 0;
             for (int j = 0; j < N; j++) {
-                int swing = inputList.get(0).indexOf(inputList.get(i).charAt(j));
+                int swing = inputList.getFirst().indexOf(inputList.get(i).charAt(j));
                 if ( swing == j ) S++;
                 else if ( swing != -1 ) B++;
                 if (S == N) verse = "WIN";
@@ -57,11 +57,9 @@ class Main2 {
             String[] split = realNumber.split("\\.");
             if (Integer.parseInt(split[1]) == 0) result++;
         }
-
         System.out.println(result);
     }
 }
-
 
 
 class Main3 {
@@ -70,7 +68,7 @@ class Main3 {
         Deque<Integer> even = new ArrayDeque<>();
         Deque<Integer> odd = new ArrayDeque<>();
 
-        int N = Integer.parseInt(br.readLine());
+        br.readLine();
         String[] intArray = br.readLine().split(" ");
 
         for (String a : intArray){
@@ -92,10 +90,7 @@ class Main4 {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int pagesSum = Integer.parseInt(br.readLine());
-
-        int lastPage = 2;
-        int missingOddPage = 0;
-
+        int missingOddPage;
         for (int i = 2; i <= 10; i = i + 2){
             int correctSum = i * (i + 1) / 2;
             if (correctSum > pagesSum) {
