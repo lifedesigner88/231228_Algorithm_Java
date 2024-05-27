@@ -2,19 +2,39 @@ package JavaCodeTest.A_0004_Most_CommoneWord;
 
 // https://leetcode.com/problems/most-common-word
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Most_CommoneWord {
     public static void main(String[] args) {
+
+        String pargraph = "Bob hit a ball, the hit BALL flew far after it was hit.";
+        String[] bannedWords = {"hit"};
+
+        MapSetMax mapSetMax = new MapSetMax();
+        String mostCommonWord = mapSetMax.mostCommonWord(pargraph, bannedWords);
+        System.out.println(mostCommonWord);
 
     }
 }
 
 
-class Solution {
+// ❤️ Beautiful Solution ❤️
+
+class MapSetMax {
+    public String mostCommonWord(String paragraph, String[] banned) {
+        Set<String> banSet = new HashSet<>(Arrays.asList(banned));
+        Map<String, Integer> wordsMap = new HashMap<>();
+        String[] words = paragraph.replaceAll("\\W+", "/").toLowerCase().split("/");
+        for (String w : words)
+            if (!banSet.contains(w))
+                wordsMap.put(w, wordsMap.getOrDefault(w, 0) + 1);
+        return Collections.max(wordsMap.entrySet(), Map.Entry.comparingByValue()).getKey();
+    }
+}
+
+
+// 🧪 연구중 🧪
+class test {
     public String mostCommonWord(String paragraph, String[] banned) {
 
         Map<String, Integer> map = new HashMap<>();
@@ -30,7 +50,7 @@ class Solution {
                     String temp = sb.toString().toLowerCase();
                     addToMap(map, temp, banned, sb);
                 }
-            } else  {
+            } else {
                 String temp = sb.toString().toLowerCase();
                 addToMap(map, temp, banned, sb);
             }
@@ -49,3 +69,6 @@ class Solution {
         }
     }
 }
+
+
+
