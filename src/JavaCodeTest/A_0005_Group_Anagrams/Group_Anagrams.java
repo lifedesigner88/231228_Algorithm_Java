@@ -28,15 +28,15 @@ public class Group_Anagrams {
 
 class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
-        Map<String, List<String>> resultMap = new HashMap<>();
+        Map<String, List<String>> map = new HashMap<>();
         for (String s : strs) {
             char[] chars = s.toCharArray();
             Arrays.sort(chars);
             String key = String.valueOf(chars);
-            if (!resultMap.containsKey(key))
-                resultMap.put(key, new ArrayList<>());
-            resultMap.get(key).add(s);
+            if (!map.containsKey(key))
+                map.put(key, new ArrayList<>());
+            map.get(key).add(s);
         }
-        return new ArrayList<>(resultMap.values());
+        return new ArrayList<>(map.values());
     }
 }
