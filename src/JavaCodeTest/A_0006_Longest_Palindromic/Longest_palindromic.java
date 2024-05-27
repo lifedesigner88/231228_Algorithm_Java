@@ -10,11 +10,13 @@ public class Longest_palindromic {
     public static void main(String[] args) {
 
 
-        String s = "badad";
+        String s = "kbakdkad";
+        String result = "akdka";
 
-        Solution sol = new Solution();
-        String longestPalindromicSubstring = sol.longestPalindrome(s);
-        System.out.println(longestPalindromicSubstring);
+
+        ShortFirst sf = new ShortFirst();
+        String sfStr = sf.longestPalindrome(s);
+        System.out.println(sfStr);
 
         LongFirst lf = new LongFirst();
         String lfStr = lf.longestPalindrome(s);
@@ -26,7 +28,7 @@ public class Longest_palindromic {
 
 // ❤️ Beautiful Solution ❤️
 
-class Solution {
+class ShortFirst {
 
     int left;
     int maxLength;
@@ -35,7 +37,7 @@ class Solution {
         int n = s.length();
         if (n < 2) return s;
         for (int i = 0; i < n - 1; i++) {
-            checkPalin(s, i, i + 1 );
+            checkPalin(s, i, i + 1);
             checkPalin(s, i, i + 2);
         }
         return s.substring(left, left + maxLength);
@@ -74,6 +76,7 @@ class LongFirst {
         return true;
     }
 }
+
 
 // 1 2 3 4 5 6 7 8 9 0
 // * *
