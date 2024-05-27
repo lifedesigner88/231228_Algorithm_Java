@@ -1,6 +1,7 @@
 package JavaCodeTest.A_0004_Most_CommoneWord;
 
 // https://leetcode.com/problems/most-common-word
+// https://blog.naver.com/lifedesigner88/223459620422
 
 import java.util.*;
 
@@ -9,6 +10,7 @@ public class Most_CommoneWord {
 
         String pargraph = "Bob hit a ball, the hit BALL flew far after it was hit.";
         String[] bannedWords = {"hit"};
+        String result = "ball";
 
         MapSetMax mapSetMax = new MapSetMax();
         String mostCommonWord = mapSetMax.mostCommonWord(pargraph, bannedWords);
