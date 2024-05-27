@@ -1,6 +1,7 @@
 package JavaCodeTest.A_0005_Group_Anagrams;
 
 // https://leetcode.com/problems/group-anagrams
+// https://blog.naver.com/lifedesigner88/223459734272
 
 
 import java.util.*;
@@ -22,9 +23,6 @@ public class Group_Anagrams {
 
 
 // ❤️ Beautiful Solution ❤️
-
-
-
 
 class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
