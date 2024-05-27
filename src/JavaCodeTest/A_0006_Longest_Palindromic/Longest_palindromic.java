@@ -1,7 +1,7 @@
 package JavaCodeTest.A_0006_Longest_Palindromic;
 
-// https://leetcode.com/problems/group-anagrams
-// https://blog.naver.com/lifedesigner88/223459734272
+// https://leetcode.com/problems/longest-palindromic-substring
+// https://blog.naver.com/lifedesigner88/223460417222
 
 
 import java.util.*;
