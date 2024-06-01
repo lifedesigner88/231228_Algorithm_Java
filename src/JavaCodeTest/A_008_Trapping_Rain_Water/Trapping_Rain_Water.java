@@ -53,7 +53,6 @@ class TwoPointer {
 class UseStack {
     public int trap(int[] height) {
         Deque<Integer> stack = new ArrayDeque<>();
-
         int water = 0;
         int n = height.length;
 
