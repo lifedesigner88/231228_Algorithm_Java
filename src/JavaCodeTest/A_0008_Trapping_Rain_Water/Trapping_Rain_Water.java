@@ -1,4 +1,4 @@
-package JavaCodeTest.A_008_Trapping_Rain_Water;
+package JavaCodeTest.A_0008_Trapping_Rain_Water;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -21,11 +21,8 @@ public class Trapping_Rain_Water {
         UseStack us = new UseStack();
         System.out.println(us.trap(height));
 
-
     }
-
 }
-
 
 // ❤️ Beautiful Solution ❤️
 
