@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 // https://leetcode.com/problems/two-sum
-// https://blog.naver.com/lifedesigner88/223455176344
+// https://blog.naver.com/lifedesigner88/223465386178
 
 public class TwoSum {
     public static void main(String[] args) {

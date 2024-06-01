@@ -3,6 +3,9 @@ package JavaCodeTest.A_008_Trapping_Rain_Water;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
+// https://leetcode.com/problems/trapping-rain-water
+// https://blog.naver.com/lifedesigner88/223465496078
+
 public class Trapping_Rain_Water {
     public static void main(String[] args) {
 
