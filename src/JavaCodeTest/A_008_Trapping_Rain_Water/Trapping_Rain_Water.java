@@ -1,5 +1,8 @@
 package JavaCodeTest.A_008_Trapping_Rain_Water;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 public class Trapping_Rain_Water {
     public static void main(String[] args) {
 
@@ -10,6 +13,9 @@ public class Trapping_Rain_Water {
 
         TwoPointer tp = new TwoPointer();
         System.out.println(tp.trap(height));
+
+        UseStack us = new UseStack();
+        System.out.println(us.trap(height));
 
 
     }
@@ -44,12 +50,28 @@ class TwoPointer {
 }
 
 
+class UseStack {
+    public int trap(int[] height) {
+        Deque<Integer> stack = new ArrayDeque<>();
 
+        int water = 0;
+        int n = height.length;
 
+        for (int i = 0; i < n; i++) {
+            while (!stack.isEmpty() && height[i] > height[stack.peek()]) {
+                Integer top = stack.pop();
+                if (stack.isEmpty()) break;
+                int distance = i - stack.peek() - 1;
+                int wHeight = Math.min(height[i], height[stack.peek()]);
+                int waters = wHeight - height[top];
+                water += distance * waters;
+            }
+            stack.push(i);
+        }
 
-
-
-
+        return water;
+    }
+}
 
 
 // 시간초과.
