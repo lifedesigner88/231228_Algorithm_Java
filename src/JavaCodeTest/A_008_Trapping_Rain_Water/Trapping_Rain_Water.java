@@ -25,12 +25,11 @@ class TwoPointer {
         int left = 0;
         int right = height.length - 1;
 
-        int maxLeft = height[left];
-        int maxRight = height[right];
-
+        int maxLeft = 0;
+        int maxRight = 0;
         int water = 0;
-        while (left < right) {
 
+        while (left < right) {
             maxLeft = Math.max(maxLeft, height[left]);
             maxRight = Math.max(maxRight, height[right]);
 
@@ -38,11 +37,16 @@ class TwoPointer {
                 water += maxLeft - height[left++];
             else
                 water += maxRight - height[right--];
-
         }
+
         return water;
     }
 }
+
+
+
+
+
 
 
 
