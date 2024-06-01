@@ -1,4 +1,4 @@
-package JavaCodeTest.A_0000_Two_Sum;
+package JavaCodeTest.A_0007_Two_Sum;
 
 import java.util.Arrays;
 import java.util.HashMap;
