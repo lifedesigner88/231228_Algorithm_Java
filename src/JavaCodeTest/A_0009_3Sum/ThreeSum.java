@@ -7,6 +7,7 @@ import java.util.List;
 
 
 // https://leetcode.com/problems/3sum
+// https://blog.naver.com/lifedesigner88/223465859500
 
 public class ThreeSum {
     public static void main(String[] args) {
