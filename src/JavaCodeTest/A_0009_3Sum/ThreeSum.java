@@ -5,6 +5,9 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+
+// https://leetcode.com/problems/3sum
+
 public class ThreeSum {
     public static void main(String[] args) {
 
@@ -15,19 +18,25 @@ public class ThreeSum {
         List<List<Integer>> answer = bf.threeSum(nums);
         for (List<Integer> list : answer) System.out.print(list + ", ");
 
+        System.out.println();
+
+        TwoPointer tp = new TwoPointer();
+        List<List<Integer>> answer2 = tp.threeSum(nums);
+        for (List<Integer> list : answer2) System.out.print(list + ", ");
+
     }
 }
 
 
 // ❤️ Beautiful Solution ❤️
 
-class Solution {
+class TwoPointer {
     public List<List<Integer>> threeSum(int[] nums) {
 
         Arrays.sort(nums);
         List<List<Integer>> results = new ArrayList<>();
-
         int n = nums.length;
+
         for (int i = 0; i < n - 2; i++) {
             if (i > 0 && nums[i - 1] == nums[i]) continue;
 
@@ -64,7 +73,7 @@ class BrustForce {
             if (i > 0 && nums[i] == nums[i - 1]) continue;
             for (int j = i + 1; j < n - 1; j++) {
                 if (j > i + 1 && nums[j] == nums[j - 1]) continue;
-                for (int k = j + 1; k < n; k++){
+                for (int k = j + 1; k < n; k++) {
                     if (k > j + 1 && nums[k] == nums[k - 1]) continue;
                     if (nums[i] + nums[j] + nums[k] == 0)
                         results.add(Arrays.asList(nums[i], nums[j], nums[k]));
