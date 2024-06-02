@@ -2,6 +2,7 @@ package JavaCodeTest.A_0013_Palindrome_Linked_List;
 
 import java.util.Deque;
 import java.util.LinkedList;
+import java.util.Objects;
 
 public class PalindromeLinkedList {
     public static void main(String[] args) {
@@ -33,15 +34,12 @@ class UseDeque {
         }
 
         while (deQue.size() > 1)
-            if (deQue.pollFirst() != deQue.pollLast())
+            if (!Objects.equals(deQue.pollFirst(), deQue.pollLast()))
                 return false;
 
         return true;
     }
 }
-
-
-
 
 
 class ListNode {
