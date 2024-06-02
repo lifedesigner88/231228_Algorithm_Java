@@ -13,10 +13,12 @@ public class PalindromeLinkedList {
         head.next.next = new ListNode(2);
         head.next.next.next = new ListNode(1);
 
+        boolean result = true;
+
 
         UseDeque solution = new UseDeque();
-        boolean result = solution.isPalindrome(head);
-        System.out.println(result);
+        boolean result1 = solution.isPalindrome(head);
+        System.out.println(result1);
 
         SlowFast sf = new SlowFast();
         boolean result2 = sf.isPalindrome(head);
