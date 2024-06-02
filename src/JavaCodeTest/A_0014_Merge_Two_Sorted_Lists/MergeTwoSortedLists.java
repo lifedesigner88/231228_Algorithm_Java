@@ -70,20 +70,20 @@ class Recursive {
 class Assemble {
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
         ListNode prehead = new ListNode(Integer.MIN_VALUE);
-        ListNode prev = prehead;
+        ListNode preview = prehead;
 
         while (list1 != null && list2 != null) {
-            if (list1.val <= list2.val) {
-                prev.next = list1;
+            if (list1.val < list2.val){
+                preview.next = list1;
                 list1 = list1.next;
             } else {
-                prev.next = list2;
+                preview.next = list2;
                 list2 = list2.next;
             }
-            prev = prev.next;
+            preview = preview.next;
         }
 
-        prev.next = list1 == null ? list2 : list1;
+        preview.next = list1 != null ? list1 : list2;
         return prehead.next;
     }
 }
