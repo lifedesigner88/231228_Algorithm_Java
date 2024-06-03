@@ -11,10 +11,8 @@ import java.util.List;
 public class AddTwoNumbers {
     public static void main(String[] args) {
 
-
         ListNode l1 = convertListToListNode(Arrays.asList(2, 4, 3));
         ListNode l2 = convertListToListNode(Arrays.asList(5, 6, 4));
-
 
         UseBigInt ub = new UseBigInt();
         ListNode result = ub.addTwoNumbers(l1, l2);
@@ -28,12 +26,11 @@ public class AddTwoNumbers {
 
 // 리스트를 노드로 만드는 함수.
     static ListNode convertListToListNode(List<Integer> list) {
-        if (list == null || list.isEmpty()) {
-            return null;
-        }
+        if (list == null || list.isEmpty()) return null;
 
-        ListNode dummyHead = new ListNode(0);
+        ListNode dummyHead = new ListNode();
         ListNode current = dummyHead;
+
         for (int value : list) {
             current.next = new ListNode(value);
             current = current.next;
@@ -41,7 +38,6 @@ public class AddTwoNumbers {
 
         return dummyHead.next;
     }
-
 }
 
 
