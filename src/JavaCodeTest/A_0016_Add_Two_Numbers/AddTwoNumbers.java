@@ -35,7 +35,7 @@ public class AddTwoNumbers {
 
     }
 
-// 리스트를 노드로 만드는 함수.
+    // 리스트를 노드로 만드는 함수.
     static ListNode convertListToListNode(List<Integer> list) {
         if (list == null || list.isEmpty()) return null;
 
@@ -50,7 +50,6 @@ public class AddTwoNumbers {
         return dummyHead.next;
     }
 }
-
 
 
 // ❤️ Beautiful Solution ❤️
@@ -87,7 +86,7 @@ class UseBigInt {
         return answer;
     }
 
-    ListNode addNodeToHead (ListNode head, int val){
+    ListNode addNodeToHead(ListNode head, int val) {
         ListNode newNode = new ListNode(val);
         newNode.next = head;
         return newNode;
@@ -97,7 +96,7 @@ class UseBigInt {
 
 class UseCarry {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode root = new ListNode(0);
+        ListNode root = new ListNode();
         ListNode pointer = root;
         int carry = 0;
 
@@ -117,8 +116,6 @@ class UseCarry {
         return root.next;
     }
 }
-
-
 
 
 // ListNode Class
