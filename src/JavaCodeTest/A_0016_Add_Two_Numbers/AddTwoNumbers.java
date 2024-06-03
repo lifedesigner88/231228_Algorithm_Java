@@ -13,7 +13,7 @@ public class AddTwoNumbers {
 
 
         ListNode l1 = convertListToListNode(Arrays.asList(2, 4, 3));
-        ListNode l2 =convertListToListNode(Arrays.asList(5, 6, 4));
+        ListNode l2 = convertListToListNode(Arrays.asList(5, 6, 4));
 
 
         UseBigInt ub = new UseBigInt();
@@ -23,7 +23,6 @@ public class AddTwoNumbers {
             result = result.next;
         }
         System.out.println();
-
 
     }
 
@@ -42,11 +41,6 @@ public class AddTwoNumbers {
 
         return dummyHead.next;
     }
-
-
-
-
-
 
 }
 
