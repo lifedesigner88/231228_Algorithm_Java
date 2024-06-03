@@ -22,6 +22,17 @@ public class AddTwoNumbers {
         }
         System.out.println();
 
+        ListNode l3 = convertListToListNode(Arrays.asList(2, 4, 3));
+        ListNode l4 = convertListToListNode(Arrays.asList(5, 6, 4));
+
+        UseCarry uc = new UseCarry();
+        ListNode result2 = uc.addTwoNumbers(l3, l4);
+        while (result2 != null) {
+            System.out.print(result2.val);
+            result2 = result2.next;
+        }
+        System.out.println();
+
     }
 
 // 리스트를 노드로 만드는 함수.
@@ -80,6 +91,30 @@ class UseBigInt {
         ListNode newNode = new ListNode(val);
         newNode.next = head;
         return newNode;
+    }
+}
+
+
+class UseCarry {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode root = new ListNode(0);
+        ListNode pointer = root;
+        int carry = 0;
+
+        while (l1 != null || l2 != null || carry != 0) {
+            if (l1 != null) {
+                carry += l1.val;
+                l1 = l1.next;
+            }
+            if (l2 != null) {
+                carry += l2.val;
+                l2 = l2.next;
+            }
+            pointer.next = new ListNode(carry % 10);
+            carry /= 10;
+            pointer = pointer.next;
+        }
+        return root.next;
     }
 }
 
