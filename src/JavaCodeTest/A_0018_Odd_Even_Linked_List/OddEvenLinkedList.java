@@ -7,10 +7,12 @@ public class OddEvenLinkedList {
     public static void main(String[] args) {
 
         ListNode list = convertListToListNode(Arrays.asList(1, 2, 3, 4, 5));
-
-
-
-
+        Solution solution = new Solution();
+        ListNode result = solution.oddEvenList(list);
+        while (result != null) {
+            System.out.print(result.val + ", ");
+            result = result.next;
+        }
 
     }
 
@@ -30,12 +32,23 @@ public class OddEvenLinkedList {
 
 // ❤️ Beautiful Solution ❤️
 
+class Solution {
+    public ListNode oddEvenList(ListNode head) {
+        if (head == null) return null;
+        ListNode odd = head;
+        ListNode even = head.next;
+        ListNode evenHead = head.next;
 
-
-
-
-
-
+        while (even != null && even.next != null) {
+            odd.next = odd.next.next;
+            even.next = even.next.next;
+            odd = odd.next;
+            even = even.next;
+        }
+        odd.next = evenHead;
+        return head;
+    }
+}
 
 
 // ListNode Class
