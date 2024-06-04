@@ -6,25 +6,24 @@ import java.util.List;
 public class SwapNodesInPairs {
     public static void main(String[] args) {
 
-      ListNode list = convertListToListNode(Arrays.asList(1, 2, 3, 4, 5));
+        ListNode list = convertListToListNode(Arrays.asList(1, 2, 3, 4, 5));
 
-      ListNode result = new MySolution().swapPairs(list);
+        ListNode result = new MySolution().swapPairs(list);
 
-      ListNode pointer = result;
-      while (pointer != null) {
-          System.out.print(pointer.val + ", ");
-          pointer = pointer.next;
-      }
+        ListNode pointer = result;
+        while (pointer != null) {
+            System.out.print(pointer.val + ", ");
+            pointer = pointer.next;
+        }
 
 
-      System.out.println();
+        System.out.println();
 
         ListNode pointer2 = new Reculsive().swapPairs(result);
-      while (pointer2 != null) {
-          System.out.print(pointer2.val + ", ");
-          pointer2 = pointer2.next;
-      }
-
+        while (pointer2 != null) {
+            System.out.print(pointer2.val + ", ");
+            pointer2 = pointer2.next;
+        }
 
 
     }
@@ -41,7 +40,6 @@ public class SwapNodesInPairs {
         return dummyHead.next;
     }
 }
-
 
 
 // ❤️ Beautiful Solution ❤️
