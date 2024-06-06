@@ -24,7 +24,6 @@ public class DesignCircularQueue {
         System.out.println(un.Front());
         System.out.println(un.Rear());
 
-
     }
 }
 
