@@ -101,7 +101,7 @@ class MyCircularDeque {
         int val;
         DoublyLinkedList left;
         DoublyLinkedList right;
-        public DoublyLinkedList() {};
+        public DoublyLinkedList() {}
         public DoublyLinkedList(int val) {
             this.val = val;
         }
