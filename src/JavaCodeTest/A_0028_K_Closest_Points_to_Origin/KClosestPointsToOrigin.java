@@ -65,10 +65,10 @@ class PQCustom {
                 });
         Collections.addAll(pQue, points);
 
-        int [][] results = new int[k][];
+        int[][] results = new int[k][];
         for (int i = 0; i < k; i++)
             results[i] = Objects.requireNonNull(pQue.poll());
-        return results;
 
+        return results;
     }
 }
