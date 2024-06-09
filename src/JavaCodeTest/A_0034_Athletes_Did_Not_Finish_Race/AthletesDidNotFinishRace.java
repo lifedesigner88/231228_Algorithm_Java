@@ -34,10 +34,8 @@ class UseMap {
             members.put(p, members.getOrDefault(p, 0) + 1);
 
         for (String c : completion)
-            if (members.get(c) == 1)
-                members.remove(c);
-            else
-                members.put(c, members.get(c) - 1);
+            if (members.get(c) == 1) members.remove(c);
+            else members.put(c, members.get(c) - 1);
 
         return members.entrySet().iterator().next().getKey();
     }
