@@ -28,7 +28,6 @@ public class AthletesDidNotFinishRace {
 
 class UseMap {
     public String solution(String[] participant, String[] completion) {
-        String answer = "";
         Map<String, Integer> members = new HashMap<>();
 
         for (String p : participant)
@@ -40,11 +39,7 @@ class UseMap {
             else
                 members.put(c, members.get(c) - 1);
 
-        for (String a : members.keySet())
-            if (members.get(a) == 1)
-                answer = a;
-
-        return answer;
+        return members.entrySet().iterator().next().getKey();
     }
 }
 
