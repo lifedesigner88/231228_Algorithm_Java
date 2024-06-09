@@ -27,7 +27,7 @@ class MapLeftPointer {
         int right = 0;
         int maxLength = 0;
 
-        HashMap<Character, Integer> used = new HashMap<>();
+        Map<Character, Integer> used = new HashMap<>();
         for (char c : s.toCharArray()) {
             if (used.containsKey(c) && left <= used.get(c))
                 left = used.get(c) + 1;
