@@ -24,8 +24,6 @@ public class AthletesDidNotFinishRace {
 // ❤️ Beautiful Solution ❤️
 
 
-// import java.util.*;
-
 class UseMap {
     public String solution(String[] participant, String[] completion) {
         Map<String, Integer> members = new HashMap<>();
@@ -41,8 +39,6 @@ class UseMap {
     }
 }
 
-
-// import java.util.*;
 
 class UseArraySort {
     public String solution(String[] participant, String[] completion) {
