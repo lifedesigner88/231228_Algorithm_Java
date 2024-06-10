@@ -19,7 +19,6 @@ public class NumberOfIslands {
 
 // ❤️ Beautiful Solution ❤️
 
-
 class Solution {
     public int numIslands(char[][] grid) {
 
