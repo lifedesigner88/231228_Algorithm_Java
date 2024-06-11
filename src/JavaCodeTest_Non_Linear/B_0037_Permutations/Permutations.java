@@ -42,6 +42,7 @@ class Solution {
             List<Integer> nextElements = new ArrayList<>(elements);
             nextElements.remove(e);
             prevElements.add(e);
+
             DFS(results, prevElements, nextElements);
             prevElements.remove(e);
         }
