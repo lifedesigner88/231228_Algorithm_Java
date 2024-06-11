@@ -9,6 +9,7 @@ public class Permutations {
     public static void main(String[] args) {
 
         int[] nums = {1, 2, 3};
+
         Solution solution = new Solution();
         List<List<Integer>> permutations = solution.permute(nums);
         System.out.println(permutations);
