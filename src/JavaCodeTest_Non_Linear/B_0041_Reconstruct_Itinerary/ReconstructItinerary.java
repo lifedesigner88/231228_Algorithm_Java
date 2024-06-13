@@ -62,7 +62,6 @@ class Recursion {
 
 class Iteration {
     public List<String> findItinerary(List<List<String>> tickets) {
-
         Map<String, PriorityQueue<String>> fromToMap = new HashMap<>();
 
         for (List<String> ticket : tickets) {
