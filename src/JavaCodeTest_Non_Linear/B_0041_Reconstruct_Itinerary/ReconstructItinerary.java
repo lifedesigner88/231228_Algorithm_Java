@@ -49,7 +49,9 @@ class Recursion {
         return results;
     }
 
-    void DFS(List<String> results, Map<String, PriorityQueue<String>> fromToMap, String from) {
+    void DFS(List<String> results,
+             Map<String, PriorityQueue<String>> fromToMap,
+             String from) {
         while (fromToMap.containsKey(from) && !fromToMap.get(from).isEmpty())
             DFS(results, fromToMap, fromToMap.get(from).poll());
         results.addFirst(from);
