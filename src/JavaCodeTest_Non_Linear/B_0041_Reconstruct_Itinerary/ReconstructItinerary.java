@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public class ReconstructItinerary {
     public static void main(String[] args) {
 
-        String[][] array = {{"MUC","LHR"},{"JFK","MUC"},{"SFO","SJC"},{"LHR","SFO"}};
+        String[][] array = {{"MUC", "LHR"}, {"JFK", "MUC"}, {"SFO", "SJC"}, {"LHR", "SFO"}};
 
         List<List<String>> list = Arrays.stream(array)
                 .map(Arrays::asList)
@@ -25,13 +25,10 @@ public class ReconstructItinerary {
         System.out.println(itinerary2);
 
 
-
     }
 }
 
 // ❤️ Beautiful Solution ❤️
-
-
 
 
 class Recursion {
@@ -59,7 +56,6 @@ class Recursion {
 }
 
 
-
 class Iteration {
     public List<String> findItinerary(List<List<String>> tickets) {
         Map<String, PriorityQueue<String>> fromToMap = new HashMap<>();
@@ -74,7 +70,7 @@ class Iteration {
 
         stack.push("JFK");
         while (!stack.isEmpty()) {
-            while(fromToMap.containsKey(stack.getFirst())
+            while (fromToMap.containsKey(stack.getFirst())
                     && !fromToMap.get(stack.getFirst()).isEmpty())
                 stack.push(fromToMap.get(stack.getFirst()).poll());
             results.addFirst(stack.pop());
