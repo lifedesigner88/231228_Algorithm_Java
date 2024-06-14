@@ -40,6 +40,7 @@ class Recursion {
         for (List<String> ticket : tickets) {
             String from = ticket.getFirst();
             String to = ticket.getLast();
+
             fromTo.putIfAbsent(from, new PriorityQueue<>());
             fromTo.get(from).add(to);
         }
