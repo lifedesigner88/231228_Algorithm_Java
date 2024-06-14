@@ -33,6 +33,8 @@ public class ReconstructItinerary {
 
 class Recursion {
 
+    final String START = "JFK";
+
     public List<String> findItinerary(List<List<String>> tickets) {
 
         Map<String, Queue<String>> fromTo = new HashMap<>();
@@ -46,7 +48,7 @@ class Recursion {
         }
 
         List<String> results = new LinkedList<>();
-        DFS(results, fromTo, "JFK");
+        DFS(results, fromTo, START);
         return results;
     }
 
