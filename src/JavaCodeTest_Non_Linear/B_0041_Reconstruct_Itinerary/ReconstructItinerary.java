@@ -57,14 +57,17 @@ class Recursion {
 
 
 class Iteration {
+
     final String START = "JFK";
 
     public List<String> findItinerary(List<List<String>> tickets) {
 
-        Map<String, PriorityQueue<String>> fromTo = new HashMap<>();
+        Map<String, Queue<String>> fromTo = new HashMap<>();
+
         for (List<String> ticket : tickets) {
             String from = ticket.getFirst();
             String to = ticket.getLast();
+
             fromTo.putIfAbsent(from, new PriorityQueue<>());
             fromTo.get(from).add(to);
         }
@@ -74,7 +77,8 @@ class Iteration {
 
         stack.push(START);
         while (!stack.isEmpty()) {
-            while(fromTo.containsKey(stack.peek())) {
+            while (fromTo.containsKey(stack.peek())) {
+
                 Queue<String> toPQue = fromTo.get(stack.peek());
                 if (toPQue.isEmpty()) {
                     fromTo.remove(stack.peek());
