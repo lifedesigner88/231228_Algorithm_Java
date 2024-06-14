@@ -34,23 +34,25 @@ public class ReconstructItinerary {
 class Recursion {
 
     public List<String> findItinerary(List<List<String>> tickets) {
-        List<String> results = new LinkedList<>();
-        Map<String, PriorityQueue<String>> fromToMap = new HashMap<>();
+
+        Map<String, Queue<String>> fromTo = new HashMap<>();
 
         for (List<String> ticket : tickets) {
-            fromToMap.putIfAbsent(ticket.getFirst(), new PriorityQueue<>());
-            fromToMap.get(ticket.getFirst()).add(ticket.getLast());
+            String from = ticket.getFirst();
+            String to = ticket.getLast();
+            fromTo.putIfAbsent(from, new PriorityQueue<>());
+            fromTo.get(from).add(to);
         }
 
-        DFS(results, fromToMap, "JFK");
+        List<String> results = new LinkedList<>();
+        DFS(results, fromTo, "JFK");
         return results;
     }
 
     void DFS(List<String> results,
-             Map<String, PriorityQueue<String>> fromToMap,
-             String from) {
-        while (fromToMap.containsKey(from) && !fromToMap.get(from).isEmpty())
-            DFS(results, fromToMap, fromToMap.get(from).poll());
+             Map<String, Queue<String>> fromTo, String from) {
+        while (fromTo.containsKey(from) && !fromTo.get(from).isEmpty())
+            DFS(results, fromTo, fromTo.get(from).poll());
         results.addFirst(from);
     }
 }
