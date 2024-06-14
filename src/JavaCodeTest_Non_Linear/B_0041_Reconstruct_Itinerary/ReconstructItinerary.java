@@ -38,8 +38,8 @@ class Recursion {
         Map<String, PriorityQueue<String>> fromToMap = new HashMap<>();
 
         for (List<String> ticket : tickets) {
-            fromToMap.putIfAbsent(ticket.get(0), new PriorityQueue<>());
-            fromToMap.get(ticket.get(0)).add(ticket.get(1));
+            fromToMap.putIfAbsent(ticket.getFirst(), new PriorityQueue<>());
+            fromToMap.get(ticket.getFirst()).add(ticket.getLast());
         }
 
         DFS(results, fromToMap, "JFK");
@@ -57,25 +57,35 @@ class Recursion {
 
 
 class Iteration {
-    public List<String> findItinerary(List<List<String>> tickets) {
-        Map<String, PriorityQueue<String>> fromToMap = new HashMap<>();
+    final String START = "JFK";
 
+    public List<String> findItinerary(List<List<String>> tickets) {
+
+        Map<String, PriorityQueue<String>> fromTo = new HashMap<>();
         for (List<String> ticket : tickets) {
-            fromToMap.putIfAbsent(ticket.get(0), new PriorityQueue<>());
-            fromToMap.get(ticket.get(0)).add(ticket.get(1));
+            String from = ticket.getFirst();
+            String to = ticket.getLast();
+            fromTo.putIfAbsent(from, new PriorityQueue<>());
+            fromTo.get(from).add(to);
         }
 
         List<String> results = new LinkedList<>();
         Deque<String> stack = new ArrayDeque<>();
 
-        stack.push("JFK");
+        stack.push(START);
         while (!stack.isEmpty()) {
-            while (fromToMap.containsKey(stack.getFirst())
-                    && !fromToMap.get(stack.getFirst()).isEmpty())
-                stack.push(fromToMap.get(stack.getFirst()).poll());
+            while(fromTo.containsKey(stack.peek())) {
+                Queue<String> toPQue = fromTo.get(stack.peek());
+                if (toPQue.isEmpty()) {
+                    fromTo.remove(stack.peek());
+                    break;
+                }
+                stack.push(toPQue.poll());
+            }
             results.addFirst(stack.pop());
         }
 
         return results;
     }
+
 }
