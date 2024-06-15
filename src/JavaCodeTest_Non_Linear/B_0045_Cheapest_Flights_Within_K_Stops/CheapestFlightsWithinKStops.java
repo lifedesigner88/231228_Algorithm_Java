@@ -8,6 +8,7 @@ public class CheapestFlightsWithinKStops {
     public static void main(String[] args) {
 
         int[][] flights = {{0, 1, 100}, {1, 2, 100}, {0, 2, 500}};
+
         int src = 0;
         int dst = 2;
         int K = 1;
