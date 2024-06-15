@@ -43,8 +43,8 @@ class Solution {
         Map<Integer, Integer> visited = new HashMap<>();
 
         while (!pQue.isEmpty()) {
-            List<Integer> cur = pQue.poll();
 
+            List<Integer> cur = pQue.poll();
             int u = cur.get(0);
             int price_u = cur.get(1);
             int k_visited = cur.get(2);
