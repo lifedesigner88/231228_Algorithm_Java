@@ -12,7 +12,6 @@ public class CheapestFlightsWithinKStops {
         int dst = 2;
         int K = 1;
 
-
         Solution solution = new Solution();
         int result = solution.findCheapestPrice(flights.length, flights, src, dst, K);
         System.out.println(result);
@@ -20,7 +19,7 @@ public class CheapestFlightsWithinKStops {
     }
 }
 
-
+// ❤️ Beautiful Solution ❤️
 
 class Solution {
     public int findCheapestPrice(int n, int[][] flights, int src, int dst, int k) {
@@ -47,7 +46,7 @@ class Solution {
             List<Integer> cur = pQue.poll();
 
             int u = cur.get(0);
-            int price_u  = cur.get(1);
+            int price_u = cur.get(1);
             int k_visited = cur.get(2);
 
             if (u == dst) return price_u;
