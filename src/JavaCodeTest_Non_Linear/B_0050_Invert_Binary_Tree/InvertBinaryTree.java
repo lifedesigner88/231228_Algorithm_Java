@@ -41,13 +41,12 @@ public class InvertBinaryTree {
         System.out.println(Arrays.toString(result5));
 
 
-
     }
 
 
     // 2진트리를 배열로 출력하는 함수.
     public static Integer[] treeToArray(TreeNode root) {
-        if(root == null)
+        if (root == null)
             return new Integer[0];
 
         List<Integer> list = new ArrayList<>();
@@ -91,7 +90,6 @@ class NewNode {
 }
 
 
-
 class SwapFromRoot {
     public TreeNode invertTree(TreeNode root) {
         if (root != null) {
@@ -122,7 +120,6 @@ class SwapFromChild {
 }
 
 
-
 class IterationDFS {
 
     public TreeNode invertTree(TreeNode root) {
@@ -131,7 +128,7 @@ class IterationDFS {
         Deque<TreeNode> stack = new ArrayDeque<>();
         stack.push(root);
 
-        while(!stack.isEmpty()) {
+        while (!stack.isEmpty()) {
 
             TreeNode node = stack.pop();
             TreeNode temp = node.left;
@@ -158,7 +155,7 @@ class IterationBFS {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
 
-        while(!queue.isEmpty()) {
+        while (!queue.isEmpty()) {
 
             TreeNode node = queue.poll();
             TreeNode temp = node.left;
