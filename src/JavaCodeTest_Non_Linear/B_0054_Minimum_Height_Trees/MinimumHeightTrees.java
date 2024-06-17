@@ -50,7 +50,7 @@ class Solution {
 
             for (int leaf : leaves) {
                 int neighbor = graph.get(leaf).getFirst();
-                graph.get(neighbor).remove((Object) leaf);
+                graph.get(neighbor).remove((Integer) leaf);
                 if (graph.get(neighbor).size() == 1)
                     newLeaves.add(neighbor);
             }
