@@ -19,6 +19,8 @@ public class KthLargestElementinanArray {
     }
 }
 
+// ❤️ Beautiful Solution ❤️
+
 
 class Solution {
 
@@ -30,6 +32,7 @@ class Solution {
         return heap.extract();
     }
 
+    // 힙을 직접 구현
     static class BinaryHeap {
 
         public List<Integer> elems;
