@@ -2,6 +2,8 @@ package JavaCodeTest_Non_Linear.B_0061_Dual_Priority_Queue;
 
 import java.util.*;
 
+// https://school.programmers.co.kr/learn/courses/30/lessons/42628
+
 public class DualPriorityQueue {
     public static void main(String[] args) {
 
@@ -88,3 +90,5 @@ class UseDoublePQ {
         };
     }
 }
+
+// interval Heap 이라는 알고리즘이 있음 (최소값 최대값 구간이 가장 큰 값을 최상단에 유지)
