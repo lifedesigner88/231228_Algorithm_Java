@@ -10,7 +10,12 @@ import java.util.List;
 public class PalindromePairs {
     public static void main(String[] args) {
 
-        String[] words = {"abcd", "dcba", "lls", "s", "sssll"};
+        String[] words = {
+                "a", "b", "ban", "banana", "bat",
+                "lolcat", "mana", "nab", "nana",
+                "noon", "on", "ta", "tac"
+        };
+
         Solution s = new Solution();
         List<List<Integer>> res = s.palindromePairs(words);
         System.out.println(res);
