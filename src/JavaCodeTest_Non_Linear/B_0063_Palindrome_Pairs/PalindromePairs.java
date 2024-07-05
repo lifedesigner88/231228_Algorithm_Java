@@ -1,11 +1,10 @@
 package JavaCodeTest_Non_Linear.B_0063_Palindrome_Pairs;
 
-
-// https://leetcode.com/problems/palindrome-pairs/description/
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+// https://leetcode.com/problems/palindrome-pairs/description/
 
 public class PalindromePairs {
     public static void main(String[] args) {
