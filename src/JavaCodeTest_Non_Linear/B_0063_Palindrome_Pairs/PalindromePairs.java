@@ -22,6 +22,7 @@ public class PalindromePairs {
     }
 }
 
+// ❤️ Beautiful Solution ❤️
 
 class Solution {
     public List<List<Integer>> palindromePairs(String[] words) {
