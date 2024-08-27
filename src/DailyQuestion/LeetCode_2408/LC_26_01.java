@@ -63,7 +63,7 @@ class Solution {
     }
 
 
-    // ✅iterative
+    // ✅iterative - very Difficult... but understand
 
     public List<Integer> postorderIter(Node root) {
         List<Integer> result = new ArrayList<>();
@@ -75,25 +75,19 @@ class Solution {
         while (!stack.isEmpty()) {
             NodeVisitPair currentPair = stack.pop();
 
-            if (currentPair.isVisited) {
-                // If the node has been visited, add its value to the result
+            if (currentPair.isVisited)
                 result.add(currentPair.node.val);
-            } else {
-                // Mark the current node as visited and push it back to the stack
+            else {
                 currentPair.isVisited = true;
                 stack.push(currentPair);
-
-                // Push all children to the stack in reverse order
                 List<Node> children = currentPair.node.children;
-                for (int i = children.size() - 1; i >= 0; i--) {
+                for (int i = children.size() - 1; i >= 0; i--)
                     stack.push(new NodeVisitPair(children.get(i), false));
-                }
             }
         }
 
         return result;
     }
-
 
 }
 
