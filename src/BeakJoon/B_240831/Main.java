@@ -10,16 +10,20 @@ public class Main {
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
 
-        String input = br.readLine();
-        String[] numbers = input.split(" ");
+        String input1 = br.readLine();
+        String input2 = br.readLine();
 
-        int A = Integer.parseInt(numbers[0]);
-        int B = Integer.parseInt(numbers[1]);
-        int C = Integer.parseInt(numbers[2]);
+        int a = Integer.parseInt(input1);
+        int b = Integer.parseInt(input2);
 
-        System.out.println((A + B) % C);
-        System.out.println(((A % C) + (B % C)) % C);
-        System.out.println((A * B) % C);
-        System.out.println(((A % C) * (B % C)) % C);
+        String[] temp = input2.split("");
+
+        for (int i = 2 ; i >= 0 ; i--) {
+            int tmp = Integer.parseInt(temp[i]);
+            System.out.println(a * tmp);
+        }
+
+        System.out.println(a * b);
+
     }
 }
