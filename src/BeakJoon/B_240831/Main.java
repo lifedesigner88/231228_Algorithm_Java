@@ -10,20 +10,15 @@ public class Main {
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
 
-        String input1 = br.readLine();
-        String input2 = br.readLine();
+        String input = br.readLine();
 
-        int a = Integer.parseInt(input1);
-        int b = Integer.parseInt(input2);
+        String[] numbers = input.split(" ");
 
-        String[] temp = input2.split("");
+        long sum = 0L;
+        for (String number : numbers)
+            sum += Long.parseLong(number);
 
-        for (int i = 2 ; i >= 0 ; i--) {
-            int tmp = Integer.parseInt(temp[i]);
-            System.out.println(a * tmp);
-        }
-
-        System.out.println(a * b);
+        System.out.println(sum);
 
     }
 }
