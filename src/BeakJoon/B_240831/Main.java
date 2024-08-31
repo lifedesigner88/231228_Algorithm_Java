@@ -10,15 +10,22 @@ public class Main {
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
 
-        String input = br.readLine();
+        String firstLine = br.readLine();
+        String[] dice = firstLine.split(" ");
 
-        String[] numbers = input.split(" ");
+        int first = Integer.parseInt(dice[0]);
+        int second = Integer.parseInt(dice[1]);
+        int third = Integer.parseInt(dice[2]);
 
-        long sum = 0L;
-        for (String number : numbers)
-            sum += Long.parseLong(number);
+        int result;
 
-        System.out.println(sum);
+        if (first == second && second == third)
+            result = first * 1000 + 10000;
+        else if (first == second) result = first * 100 + 1000;
+        else if (first == third) result = first * 100 + 1000;
+        else if (second == third) result = second * 100 + 1000;
+        else result = Math.max(first, Math.max(second, third)) * 100;
 
+        System.out.println(result);
     }
 }
