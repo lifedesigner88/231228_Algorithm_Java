@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 // https://school.programmers.co.kr/learn/courses/30/lessons/258712
-public class P001_GiftExchange {
+public class P001_가장_많이_받은_선물 {
 
     public static void main(String[] args) {
         String[] friends = {"joy", "brad", "alessandro", "conan", "david"};
