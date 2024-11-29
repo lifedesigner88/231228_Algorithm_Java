@@ -1,5 +1,6 @@
 package Programers.Lv1;
 
+// https://school.programmers.co.kr/learn/courses/30/lessons/250137
 public class P002_붕대_감기 {
 
 
