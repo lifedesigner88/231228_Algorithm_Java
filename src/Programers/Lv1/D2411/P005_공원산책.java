@@ -1,4 +1,4 @@
-package Programers.Lv1;
+package Programers.Lv1.D2411;
 
 // https://school.programmers.co.kr/learn/courses/30/lessons/172928
 public class P005_공원산책 {

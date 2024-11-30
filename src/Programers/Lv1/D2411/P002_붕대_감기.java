@@ -1,4 +1,4 @@
-package Programers.Lv1;
+package Programers.Lv1.D2411;
 
 // https://school.programmers.co.kr/learn/courses/30/lessons/250137
 public class P002_붕대_감기 {
@@ -46,6 +46,6 @@ public class P002_붕대_감기 {
         int[][] attacks = {{2, 10}, {9, 15}, {10, 5}, {11, 5}}; // 공격 시간과 피해량
 
         int result = solution(bandage, health, attacks);
-        System.out.println(STR."남은 체력: \{result}");
+        System.out.println("남은 체력: " + result);
     }
 }
