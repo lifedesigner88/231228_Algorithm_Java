@@ -15,11 +15,11 @@ public class MaximumDepthOfBinaryTree {
 
         UseIteration ui = new UseIteration();
         int maxDepth = ui.maxDepth(root);
-        System.out.println(STR."Maximum Depth of Binary Tree: \{maxDepth}");
+        System.out.printf("Maximum Depth of Binary Tree: %d%n", maxDepth);
 
         UseRecursive ur = new UseRecursive();
         int maxDepthRecursive = ur.maxDepth(root);
-        System.out.println(STR."Maximum Depth of Binary Tree: \{maxDepthRecursive} ");
+        System.out.printf("Maximum Depth of Binary Tree: %d%n", maxDepthRecursive);
 
 
     }

@@ -41,7 +41,7 @@ class Codec {
         queue.add(root);
 
         StringBuilder sb = new StringBuilder();
-        sb.append(STR."#,\{root.val}");
+        sb.append("#,").append(root.val);
 
         while (!queue.isEmpty()) {
             TreeNode node = queue.poll();
