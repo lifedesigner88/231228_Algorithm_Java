@@ -22,8 +22,7 @@ public class P008_햄버거만들기 {
             for (int i = 0; i <= ingre.size() - 4; i++)
                 if (CanMakeBugger(i)) {
                     // 버거 제작
-                    for (int j = i; j < i + 4; j++)
-                        ingre.remove(i);
+                    ingre.subList(i, i + 4).clear(); // 4개이 서브리스트 제거.
                     answer++;
                     break;
                 }
@@ -42,13 +41,31 @@ public class P008_햄버거만들기 {
     }
 }
 
+// 나의 풀이
+class Solution008 {
+    public int solution(int[] ingredient) {
+        Deque<Integer> stack = new ArrayDeque<>();
+        int answer = 0;
+        for (int i : ingredient) {
+            if (stack.size() >= 3 && i == 1) {
+                int second = stack.pollLast();
+                int third = stack.pollLast();
+                int forth = stack.pollLast();
+                if (second != 3 || third != 2 || forth != 1) {
+                    stack.addLast(forth);
+                    stack.addLast(third);
+                    stack.addLast(second);
+                    stack.addLast(i);
+                } else answer++;
 
-// 1 빵
-// 2 야채
-// 3 고기
-// 1 빵
+            } else stack.addLast(i);
+        }
+        return answer;
+    }
+}
 
 
+// 인공지능 풀이
 class HamburgerPacking {
 
     public static int solution(int[] ingredient) {
