@@ -34,40 +34,29 @@ public class P009_옹알이2 {
     }
 }
 
-
+// set 으로 개선
 class Solution009 {
     public int solution(String[] babbling) {
-        String[] canBabb = {"aya", "ye", "woo", "ma"};
+        String[] canBabb = { "aya", "ye", "woo", "ma" };
         int answer = 0;
 
         for (String b : babbling) {
-            Set<String> recentPronunciations = new HashSet<>();
-            boolean canPronounce = true;
+            Set<String> set = new HashSet<>();
 
-            while (!b.isEmpty()) {
-                boolean matched = false;
-
-                for (String word : canBabb) {
-                    if (b.startsWith(word) && !recentPronunciations.contains(word)) {
-                        b = b.substring(word.length());
-                        recentPronunciations.clear();
-                        recentPronunciations.add(word);
-                        matched = true;
-                        break; // 매치되는 발음 찾으면, 루프 종료하고 다음 발음으로.
+            while(!b.isEmpty()) {
+                boolean match = false;
+                for (String c : canBabb)
+                    if (!set.contains(c) && b.startsWith(c)) {
+                        b = b.substring(c.length());
+                        set.clear();
+                        set.add(c);
+                        match = true;
                     }
-                }
-
-                if (!matched) { // 매치되는 발음이 없으면 loop 중단
-                    canPronounce = false;
-                    break;
-                }
+                if (!match) break;
             }
+            if (b.isEmpty()) answer++;
 
-            if (canPronounce) {
-                answer++;
-            }
         }
-
         return answer;
     }
 }
