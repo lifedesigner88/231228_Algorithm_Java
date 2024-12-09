@@ -3,7 +3,7 @@ package Programers.Lv1.D2412;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PP017_실패율 {
+public class P017_실패율 {
 
     int[] counter;
     List<StageFailRate> list = new ArrayList<>();
