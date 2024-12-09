@@ -13,7 +13,7 @@ public class P016_키패드누르기 {
     int[] right = {3, 4};  // #
 
     public String solution1(int[] numbers, String hand) {
-        Map<Integer, int[]> map = new HashMap<>() {{ // 배열로 해도 됨.
+        Map<Integer, int[]> map = new HashMap<>() {{
             put(0, new int[]{2,4});
 
             put(1, new int[]{1,1}); // 1번줄
@@ -46,7 +46,7 @@ public class P016_키패드누르기 {
                     move("L", button);
                 else if (leftDist > rightDist)
                     move("R", button);
-                else if (hand.equals("right"))  // ? : 삼항연산자 사용가능.
+                else if (hand.equals("right"))
                     move("R", button);
                 else
                     move("L", button);
@@ -56,7 +56,7 @@ public class P016_키패드누르기 {
         StringBuilder sb = new StringBuilder();
         for (String s : list) sb.append(s);
 
-        return sb.toString(); // String.join("",list); 참고.
+        return sb.toString();
     }
 
     private void move(String hand, int[] button) {
