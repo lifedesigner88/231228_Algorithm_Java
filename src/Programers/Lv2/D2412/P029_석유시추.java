@@ -3,7 +3,7 @@ package Programers.Lv2.D2412;
 import java.util.*;
 
 // https://school.programmers.co.kr/learn/courses/30/lessons/250136
-public class P028_석유시추 {
+public class P029_석유시추 {
 
     private int[][] land;
     private int[][] oilId;

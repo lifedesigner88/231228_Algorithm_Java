@@ -3,7 +3,7 @@ package Programers.Lv2.D2412;
 import java.util.*;
 
 // https://school.programmers.co.kr/learn/courses/30/lessons/340211
-public class P027_충돌위험찾기 {
+public class P028_충돌위험찾기 {
 
     private int[][] points;
 
