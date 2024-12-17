@@ -9,7 +9,7 @@ public class P031_요격시스템 {
     private final Map<Integer, Set<Integer>> map = new HashMap<>();
     private int[][] targets;
 
-    public int solution(int[][] targets) {
+    public int solution1(int[][] targets) {
         this.targets = targets;
 
         for (int i = 0; i < targets.length; i++)
@@ -56,4 +56,23 @@ public class P031_요격시스템 {
     }
 
 
+
+//✅ 요격시스템
+    public int solution2(int[][] targets) {
+        Arrays.sort(targets, Comparator.comparingInt(i -> i[1]));
+
+        int count = 0;
+        double cannon = -1;
+
+        for (int[] t : targets) {
+            int start = t[0];
+            int end = t[1];
+            if (cannon < start) {
+                count++;
+                cannon = end - 0.5;
+            }
+        }
+
+        return count;
+    }
 }
