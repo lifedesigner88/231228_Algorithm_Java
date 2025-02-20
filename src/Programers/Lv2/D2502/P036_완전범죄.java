@@ -20,55 +20,51 @@ public class P036_완전범죄 {
     //  ✅ DP 방식.
     public int solution1(int[][] info, int n, int m) {
         int itemCount = info.length;
-        int INF = 10000; // 충분히 큰 값 (실제 가능한 흔적 합보다 크도록 설정)
+        int INF = Integer.MAX_VALUE;
 
-        // DP 배열 초기화 (A의 흔적 합을 최소화하는 값 저장)
         int[][] dp = new int[itemCount + 1][m];
-        for (int[] row : dp) {
-            Arrays.fill(row, INF);
-        }
-        dp[0][0] = 0; // 시작점 (A와 B 모두 흔적이 0인 상태)
+        for (int[] a : dp) Arrays.fill(a, INF);
 
-        // 각 물건에 대해 DP 테이블 갱신
+        // dp[item][Btrace] = Atrace
+        dp[0][0] = 0;
+
         for (int i = 0; i < itemCount; i++) {
+
             int aTrace = info[i][0];
             int bTrace = info[i][1];
 
             int[][] nextDp = new int[itemCount + 1][m];
-            for (int[] row : nextDp) {
-                Arrays.fill(row, INF);
+            for (int[] b : nextDp) Arrays.fill(b, INF);
+
+            for (int B = 0; B < m; B++) {
+                if (dp[i][B] == INF) continue;
+
+                // A 가 훔치는 경우
+                int nextATrace = dp[i][B] + aTrace;
+                if (nextATrace < n)
+                    nextDp[i + 1][B] = Math.min(nextDp[i + 1][B], nextATrace);
+
+                // B 가 훔치는 경우
+                int nextBTrace = B + bTrace;
+                if (nextBTrace < m)
+                    nextDp[i + 1][nextBTrace] = Math.min(nextDp[i + 1][nextBTrace], dp[i][B]);
+
             }
 
-            for (int j = 0; j < m; j++) { // 현재까지 B의 흔적
-                if (dp[i][j] == INF) continue; // 유효하지 않은 상태는 건너뛰기
+            dp = nextDp;
 
-                // A가 훔치는 경우
-                int nextATrace = dp[i][j] + aTrace;
-                if (nextATrace < n) { // A의 흔적이 제한보다 작을 때만 갱신
-                    nextDp[i + 1][j] = Math.min(nextDp[i + 1][j], nextATrace);
-                }
-
-                // B가 훔치는 경우
-                int nextBTrace = j + bTrace;
-                if (nextBTrace < m) { // B의 흔적이 제한보다 작을 때만 갱신
-                    nextDp[i + 1][nextBTrace] = Math.min(nextDp[i + 1][nextBTrace], dp[i][j]);
-                }
-            }
-
-            dp = nextDp; // 현재 테이블을 다음 단계로 업데이트
         }
 
-        // 최솟값 찾기
         int result = INF;
-        for (int j = 0; j < m; j++) {
+        for (int j = 0; j < m; j++)
             result = Math.min(result, dp[itemCount][j]);
-        }
 
         return (result == INF) ? -1 : result;
     }
 
     static class State {
         int index, aTrace, bTrace;
+
         State(int index, int aTrace, int bTrace) {
             this.index = index;
             this.aTrace = aTrace;
