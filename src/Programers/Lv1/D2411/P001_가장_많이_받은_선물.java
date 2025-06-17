@@ -4,8 +4,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 // https://school.programmers.co.kr/learn/courses/30/lessons/258712
-public class P001_가장_많이_받은_선물 {
 
+
+
+
+public class P001_가장_많이_받은_선물 {
+    
+    static Map<String, Map<String, Integer>> sent = new HashMap<>();
+    static Map<String, Integer> giftIndex = new HashMap<>();
+    static Map<String, Integer> predic = new HashMap<>();
+    
     public static void main(String[] args) {
         String[] friends = {"joy", "brad", "alessandro", "conan", "david"};
         String[] gifts = {"alessandro brad", "alessandro joy",
@@ -16,10 +24,6 @@ public class P001_가장_많이_받은_선물 {
     }
 
     public static int solution1(String[] friends, String[] gifts) {
-
-        Map<String, Map<String, Integer>> sent = new HashMap<>();
-        Map<String, Integer> giftIndex = new HashMap<>();
-        Map<String, Integer> predic = new HashMap<>();
 
         // 데이터 전처리.
         for (String gift : gifts) {
@@ -38,41 +42,15 @@ public class P001_가장_많이_받은_선물 {
         }
 
         // 다음달 선물 받을 사람 예측
-        for (int i = 0; i < friends.length; i++) {
-            for (int j = i + 1 ; j < friends.length; j++) {
-
-                String A = friends[i];
-                String B = friends[j];
-
-                int AtoB = sent.getOrDefault(A, new HashMap<>())
-                        .getOrDefault(B, 0);
-
-                int BtoA = sent.getOrDefault(B, new HashMap<>())
-                        .getOrDefault(A, 0);
-
-                // 선물 받게될 사람을 선정
-                String bigVal = null;
-
-                if (AtoB == BtoA) {
-                    int indexA = giftIndex.getOrDefault(A, 0);
-                    int indexB = giftIndex.getOrDefault(B, 0);
-                    if(indexA != indexB)
-                        bigVal = indexA > indexB ? A : B;
-                } else
-                    bigVal = AtoB > BtoA ? A : B;
-
-                if (bigVal != null)
-                    predic.put(bigVal, predic.getOrDefault(bigVal, 0) + 1);
-            }
-        }
+        predicResult(friends);
 
         return predic.values().stream()
                 .mapToInt(Integer::intValue)
                 .max()
                 .orElse(0);
     }
-
-
+    
+   
     /*
     *
     * Map<String, Map<String, Integer>> 구조에서
@@ -82,10 +60,6 @@ public class P001_가장_많이_받은_선물 {
 
 
     public static int solution2(String[] friends, String[] gifts) {
-
-        Map<String, Map<String, Integer>> sent = new HashMap<>();
-        Map<String, Integer> giftIndex = new HashMap<>();
-        Map<String, Integer> predic = new HashMap<>();
 
         // 데이터 전처리.
         for (String gift : gifts) {
@@ -113,24 +87,32 @@ public class P001_가장_많이_받은_선물 {
                     .sum();
             giftIndex.put(friend, giveNum - receiveNum);
         }
+        
+        predicResult(friends);
 
-
-        // 다음달 선물 받을 사람 예측
+        return predic.values().stream()
+                .mapToInt(Integer::intValue)
+                .max()
+                .orElse(0);
+    }
+    
+    public static void predicResult(String[] friends) {
+        
         for (int i = 0; i < friends.length; i++) {
             for (int j = i + 1 ; j < friends.length; j++) {
-
+                
                 String A = friends[i];
                 String B = friends[j];
-
+                
                 int AtoB = sent.getOrDefault(A, new HashMap<>())
                         .getOrDefault(B, 0);
-
+                
                 int BtoA = sent.getOrDefault(B, new HashMap<>())
                         .getOrDefault(A, 0);
-
+                
                 // 선물 받게될 사람을 선정
                 String bigVal = null;
-
+                
                 if (AtoB == BtoA) {
                     int indexA = giftIndex.getOrDefault(A, 0);
                     int indexB = giftIndex.getOrDefault(B, 0);
@@ -138,18 +120,11 @@ public class P001_가장_많이_받은_선물 {
                         bigVal = indexA > indexB ? A : B;
                 } else
                     bigVal = AtoB > BtoA ? A : B;
-
+                
                 if (bigVal != null)
                     predic.put(bigVal, predic.getOrDefault(bigVal, 0) + 1);
             }
         }
-
-        return predic.values().stream()
-                .mapToInt(Integer::intValue)
-                .max()
-                .orElse(0);
     }
-
-
 
 }
