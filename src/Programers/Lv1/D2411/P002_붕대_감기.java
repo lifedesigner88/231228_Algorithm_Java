@@ -39,6 +39,42 @@ public class P002_붕대_감기 {
         }
         return health;
     }
+    
+    
+    public static int solution2(int[] bandage, int health, int[][] attacks) {
+        
+        int bonusTime = bandage[0];
+        int recover = bandage[1];
+        int bonusHealth = bandage[2];
+        
+        int finalTime = attacks[attacks.length - 1][0];
+        
+        int currentHealth = health;
+        int repeat = 0;
+        int attackIdx = 0;
+        
+        for (int t = 1; t <= finalTime; t++) {
+            
+            if (t == attacks[attackIdx][0]) {
+                currentHealth -= attacks[attackIdx++][1];
+                repeat = 0;
+            }
+            else {
+                currentHealth = Math.min((currentHealth + recover), health);
+                repeat++;
+            }
+            
+            if (repeat == bonusTime) {
+                currentHealth = Math.min((currentHealth + bonusHealth), health);
+                repeat = 0;
+            }
+            
+            if (currentHealth <= 0) return -1;
+            
+        }
+        
+        return currentHealth;
+    }
 
     public static void main(String[] args) {
         int[] bandage = {5, 1, 5}; // 붕대 감기 시전 시간, 1초당 회복량, 추가 회복량
@@ -46,6 +82,8 @@ public class P002_붕대_감기 {
         int[][] attacks = {{2, 10}, {9, 15}, {10, 5}, {11, 5}}; // 공격 시간과 피해량
 
         int result = solution(bandage, health, attacks);
+        int result2 = solution2(bandage, health, attacks);
         System.out.println("남은 체력: " + result);
+        System.out.println("남은 체력: " + result2);
     }
 }
