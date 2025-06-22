@@ -172,6 +172,84 @@ class Solution {
     }
 
 }
+// 조금 다르게 풀이
+class Solution3 {
+    
+    private int[] H_W = new int[2];
+    private int width, height;
+    private String[] park;
+    
+    public int[] solution(String[] park, String[] routes) {
+        
+        this.park = park;
+        this.height = park.length;
+        this.width = park[0].length();
+        
+        for (String s : park)
+            System.out.println(s);
+        
+        // 시작 지점 검색.
+        loop:
+        for (int H = 0; H < height; H++)
+            for (int W = 0; W < width; W++) {
+                if (getState(H, W) == 'S') {
+                    H_W[0] = H;
+                    H_W[1] = W;
+                    break loop;
+                }
+            }
+        
+        for (String r : routes) {
+            char direction = r.charAt(0);
+            int repeatNum = Character.getNumericValue(r.charAt(2));
+            
+            int[] startPoint = H_W.clone(); // 초기값 기억해 두고 이동 못하면 초기값으로 변경
+            for (int i = 0; i < repeatNum; i++)
+                if (!isCanMove(direction)) {
+                    H_W = startPoint;
+                    break;
+                }
+        }
+        
+        return H_W;
+    }
+    
+    // 다음 방향이로 이동 가능한지 여부 리턴 및 이동.
+    private boolean isCanMove(char direction) {
+        
+        int dh = 0;
+        int dw = 0;
+        
+        switch (direction) {
+            case 'W' -> dw = -1;
+            case 'E' -> dw = +1;
+            case 'N' -> dh = -1;
+            case 'S' -> dh = +1;
+            default -> {
+                return false;
+            }
+        }
+        
+        int newH = H_W[0] + dh;
+        int newW = H_W[1] + dw;
+        
+        if (newH < 0 || newH >= height || newW < 0 || newW >= width)
+            return false;
+        
+        if (getState(newH, newW) != 'X') {
+            H_W[0] = newH;
+            H_W[1] = newW;
+            return true;
+        }
+        return false;
+    }
+    
+    // 대상 char 문제 반환
+    private char getState(int H, int W) {
+        return park[H].charAt(W);
+    }
+    
+}
 
 
 
